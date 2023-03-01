@@ -1,0 +1,24 @@
+data:
+  name: Hefei
+  batch_size: 32
+  dataset_path: data/dataset.npy  # 道路速度数据集
+  adjacency_matrix_path: data/matrix.npy  # 道路邻接矩阵
+  dtw_matrix_path: # 不用管
+  node_num: 524 # 道路数量
+  speed_mean: 29.0982979559 # 速度平均值
+  speed_std: 9.75304346669 # 速度方差
+  length: 120  # 数据集时间范围
+
+model:
+  epochs: 100
+  his_num: 12
+  pred_num: 6
+  choice: [1, 1, 0]
+  graph_dim: 32
+  tcn_dim: [10, 1]
+  base_lr: 0.0001
+  atten_head: 2
+  model_filename: model_pkl/staggcn_model.pkl
+  prediction_filename: prediction.npy
+  ground_truth_filename: ground_truth.npy
+log: log/chengdu_m_stmodel
