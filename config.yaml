@@ -13,11 +13,12 @@ model:
   epochs: 100
   his_num: 12
   pred_num: 6
-  choice: [1, 1, 0]
+  choice: [1, 0, 0]
   graph_dim: 32
   tcn_dim: [10, 1]
   base_lr: 0.0001
   atten_head: 2
+  max_grad_norm: 0.1
   model_filename: model_pkl/staggcn_model.pkl
   prediction_filename: prediction.npy
   ground_truth_filename: ground_truth.npy

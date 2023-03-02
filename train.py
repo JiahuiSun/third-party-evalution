@@ -76,6 +76,11 @@ def main(args):
                 loss = criterion(predictions, ground_truth)
                 model_optimizer.zero_grad()
                 loss.backward()
+                if model_args['max_grad_norm']:
+                    torch.nn.utils.clip_grad_norm_(
+                        model.parameters(), 
+                        max_norm=model_args['max_grad_norm']
+                    )
                 model_optimizer.step()
                 total_loss = total_loss + loss.item()
             total_loss = total_loss / (step + 1)
