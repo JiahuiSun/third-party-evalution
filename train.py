@@ -31,7 +31,7 @@ def main(args):
         print(f"Model params: graph_dim = {model_args['graph_dim']}, tcn_dim={model_args['tcn_dim']}, atten_head = {model_args['atten_head']}")
         print('INFO: Model parameters_count:', count_parameters(model))
 
-        model_optimizer = torch.optim.Adam(model.parameters(), lr = model_args['base_lr'], weight_decay = 5e-4)
+        model_optimizer = torch.optim.Adam(model.parameters(), lr = model_args['base_lr'], weight_decay = 5e-4, eps=1e-4)
         # model_optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)  
         lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(model_optimizer, milestones=[5, 20, 50], gamma=0.5)
         # criterion = torch.nn.MSELoss()
